@@ -7,3 +7,4 @@ if (gato == "ramon") {
 } else if (gato == 'ambar') {
     alert("que carajo usas tu nombre la concha de tu madre..");
 }
+ 
