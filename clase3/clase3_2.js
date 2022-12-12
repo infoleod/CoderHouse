@@ -40,10 +40,3 @@ if (equipo_a == equipo_b) {
 } else {
     console.log("Gano el partido B");  
 }
-
-
-
-
-
-
-
