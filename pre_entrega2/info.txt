@@ -1,0 +1,17 @@
+¡Bienvenidos a Simulating Presaming!
+
+Para su funcionamiento, deberá introducir:
+	Nombre, Edad, Valor del préstamo, Seleccionar la cantidad de cuotas y por ultimo presione el botón 'Calcular préstamo'.
+
+Como se calculan los resultados:
+	Al valor del préstamo, se le suma el porcentaje por apertura del préstamo del 5%. El mismo estará bonificado a partir de las 24 cuotas inclusive.
+	Dependiendo la cantidad de cuotas, se le cobra el interés de 15% en el caso de 3 o 6 cuotas, 30% en el caso de 9 o 12 cuotas y 45% en el caso de 24 o 36 cuotas.
+	Seleccionar la cantidad de cuotas.
+            
+Validaciones:
+	Que el Monto ingresado sea mayor a $1,00.- y menor o igual a $ 5.000.000,00.-.
+	Que la cantidad de cuotas sea: 3, 6, 9, 12, 24 o 36.
+	Que los valores ingresados (Monto y Cuotas) no sea Texto o Números negativos.
+	En todo momento, si el usuario presiona 'Esc' o 'Cancelar', pregunta si se quiere salir del proceso.
+	Luego de procesar, muestra los resultados.
+

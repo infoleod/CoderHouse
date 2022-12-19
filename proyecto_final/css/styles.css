@@ -1,0 +1,38 @@
+body {
+    background-color: rgb(146, 202, 144);
+}
+
+/* Barra de navegacion */
+#nav-bar-principal {    
+    position: fixed;
+    display: contents;
+}
+.nav {    
+    justify-content: center;
+}
+
+/* Carrousel */
+.d-block {    
+    height: 450px; 
+    object-fit: cover;
+}
+
+.carrousel-principal {
+    background-color: rgba(255, 255, 255, 0.50);    
+}
+
+/* Productos */
+#productos-principal {
+    margin-top: 30px;
+    max-width: 75%;
+    align-items: center;
+}
+
+.col {
+    max-width: 350px;
+}
+
+/* .btn-outline-secondary {
+    width: 100%;
+
+} */
