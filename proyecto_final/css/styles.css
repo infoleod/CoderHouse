@@ -2,6 +2,24 @@ body {
     background-color: rgb(146, 202, 144);
 }
 
+#logo {
+    max-width: 120px;
+    display: flex;
+    position: fixed;    
+    top: 8px;
+    left: 40px;
+    border-color: brown;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;    
+    padding: 2px;
+}
+.navbar-brand {
+    left: 200px ;
+    position: fixed;
+    font-size: xx-large;
+    text-shadow: 5px blue;    
+}
+
 /* Barra de navegacion */
 #nav-bar-principal {    
     position: fixed;
@@ -9,6 +27,9 @@ body {
 }
 .nav {    
     justify-content: center;
+}
+.me-2 {
+    margin-left: 10px;
 }
 
 /* Carrousel */
@@ -31,8 +52,33 @@ body {
 .col {
     max-width: 350px;
 }
+ 
+.card-price {
+    color: rgb(65, 116, 0);
+    position:absolute;
+}
 
-/* .btn-outline-secondary {
-    width: 100%;
+.card-cant {
+    color: rgb(65, 116, 0);
+    position:absolute;
+    right:2rem;
+}
 
-} */
+.card-title {
+    margin-top: 30px;
+    color:rgb(110, 110, 110);
+}
+
+.card-text {
+    color:rgb(150, 150, 150);
+}
+
+button {
+    margin-top: 2px;
+}
+
+h7 {
+    margin-bottom: 5px;
+}
+
+

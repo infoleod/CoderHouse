@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulating Presaming</title>
+
+    <link rel="stylesheet" type="text/css" href="css\styles.css" />    
+</head>
+<body> 
+    <!-- Cuadro de bienvenida e informativo -->
+    <div id="intro_no_login" class="form-content-info login">
+        <div id="intro_no_login_form" class="form-items login">
+            <h3 class="login">¡Bienvenidos a Simulating Prestaming!</h3>
+            <p class="login">Antes que nada, necesitamos que te registres o inicies sesión.</p>            
+            <br>
+            <div class="col-md-12">
+                <div class="valid-feedback login">Usuario/Mail</div>                
+                <input id="input_usr" class="login_input" type="text" name="text" placeholder="usuario/email" required>                                                    
+                <div id="invalid_usr" class="invalid-feedback login">Usuario/Email incorrecto !</div>                
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback pass">Password</div>                
+                <input id="input_pass" class="login_input" type="password" name="text" placeholder="password" required>                                                    
+                <div id="invalid_pass" class="invalid-feedback pass">PassWord incorrecto !</div>
+            </div>
+            
+            <button id="btn_registrar" type="submit" class="btn btn-primary">Registrate</button>
+            <button id="btn_login" type="submit" class="btn btn-primary">Iniciar sesión</button>
+            
+            
+        </div>
+    </div> 
+
+    <div id="intro_login" class="form-content-info">
+        <div class="form-items">
+            <h3>¡Bienvenidos a Simulating Presaming!</h3>
+            <p>Para su funcionamiento, deberá introducir:</p>
+            <li>Nombre, Valor del préstamo, Seleccionar la cantidad de cuotas y por ultimo presione el botón 'Calcular préstamo'.</li>
+            
+            <p>Como se calculan los resultados:</p>
+            <li>Al valor del préstamo, se le suma el porcentaje por apertura del préstamo del 5%. El mismo estará bonificado a partir de las 24 cuotas inclusive.</li>
+            <li>Dependiendo la cantidad de cuotas, se le cobra el interés de 15% en el caso de 3 o 6 cuotas, 30% en el caso de 9 o 12 cuotas y 45% en el caso de 24 o 36 cuotas.</li>
+            <li>Seleccionar la cantidad de cuotas</li>
+            
+            <p>Validaciones:</p>
+            <li>Que el Monto ingresado sea mayor a $1,00.- y menor o igual a $ 5.000.000,00.-.</li>
+            <li>Que la cantidad de cuotas sea: 3, 6, 9, 12, 24 o 36.</li>
+            <li>Que los valores ingresados (Monto y Cuotas) no sea Texto o Números negativos. </li>
+            <li>En todo momento, si el usuario presiona 'Esc' o 'Cancelar', pregunta si se quiere salir del proceso. </li>
+            <li>Luego de procesar, muestra los resultados. </li>            
+        </div>
+    </div>    
+
+    <!-- Cuadro de introduccion de parametros -->
+    <div id="simulador" class="form-content">
+        <div class="form-items">
+            <h3>¡Simulemos tu préstamo!</h3>
+            <p>Simula tu préstamo y calcula el valor de las cuotas y los intereses.</p>
+            <form class="requires-validation" novalidate>
+                <div class="col-md-12">
+                    <div class="valid-feedback">Nombre</div>
+                    <input class="form-control" type="text" name="text" placeholder="Ingrese su nombre" required>
+                    <!-- <div class="invalid-feedback">El nombre ingresado no es valido!</div> -->
+                </div>
+                <div class="col-md-12">
+                    <div class="valid-feedback">Valor del préstamo</div>
+                    <input class="form-control" type="number" name="number" placeholder="Valor del préstamo a solicitar" required>
+                    <!-- <div class="invalid-feedback">El monto ingresado no es valido!</div> -->
+                </div>
+                <div class="col-md-12">
+                    <div class="valid-feedback">Cantidad de cuotas</div>
+                    <select class="form-select mt-3" required>
+                        <option selected disabled value="">Cantidad de cuotas</option>
+                        <option value="v3">3</option>
+                        <option value="v6">6</option>
+                        <option value="v9">9</option>
+                        <option value="v12">12</option>
+                        <option value="v24">24</option>
+                        <option value="v36">36</option>
+                    </select>
+                    <!-- <div class="invalid-feedback">Por favor seleccione la cantidad de cuotas!</div> -->
+                </div>
+                
+                <div class="form-button mt-3">
+                    <button id="submit" type="submit" class="btn btn-primary">Calcular prestamo</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
+    <!-- Resultados -->
+    <div id="resultado" class="form-content-result">
+        <div class="form-items">            
+            <h3>Resultados de tu simulación</h3>
+            <div class="col-md-12">
+                <div class="valid-feedback">Monto inicial solicitado</div>                
+                <input class="form-control" type="number" name="number" placeholder="Monto inicial solicitado" required>                                                    
+                <!-- <div class="invalid-feedback">Email field cannot be blank!</div> -->
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback">Cantidad de cuotas seleccionadas</div>
+                <input class="form-control" type="number" name="number" placeholder="Cantidad de cuotas seleccionadas" required>                                                    
+                <!-- <div class="invalid-feedback">Email field cannot be blank!</div> -->
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback">Valor de la cuota a pagar</div>
+                <input class="form-control" type="number" name="number" placeholder="Valor de la cuota a pagar" required>                                                    
+                <!-- <div class="invalid-feedback">Email field cannot be blank!</div> -->
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback">Intereses generados</div>
+                <input class="form-control" type="number" name="number" placeholder="Intereses generados" required>                                                    
+                <!-- <div class="invalid-feedback">Email field cannot be blank!</div> -->
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback">Comisión por apertura de préstamo</div>
+                <input class="form-control" type="number" name="number" placeholder="Comision por apertura de prestamo" required>                                                    
+                <!-- <div class="invalid-feedback">Email field cannot be blank!</div> -->
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback">Monto final a devolver</div>
+                <input class="form-control" type="number" name="number" placeholder="Monto final a devolver" required>                                                    
+                <!-- <div class="invalid-feedback">Email field cannot be blank!</div> -->
+            </div>        
+        </div>
+    </div>
+
+    <!-- Script de conexion con JavaScript -->
+    <script src="js\script.js" ></script>
+    <script src="js\local_session_storage.js" ></script>
+</body>
+</html>

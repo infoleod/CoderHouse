@@ -5,10 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        body {
+            background-color: darkslategray;
+            color: antiquewhite;        
+        }
+        label {
+            margin-left: 10px;
+            display: flex;
+
+        }
+        input {
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+        button {
+            border-radius: 5px;
+            border-style: hidden;
+            margin: 10px 10px;
+            width: 75px;
+            height: 25px;
+        }
+        p {
+            font-size: larger;
+            margin: 10px
+        }
+
+    </style>
 </head>
 <body>
     
+    <p>Registrate</p>
+    <br>
+    <label for="">Usuario</label>    
+    <input id="usuario" type="usuario" name="" id="">
+    <br>
+    <label for="">Password</label>    
+    <input id="pass" type="password" name="" id="">
+    <br>
+    <button id="boton" onclick="registrar_usuario()">Registrarse</button>
+    <br>
 
-    <script src="clase10.js"></script>
+    <button id="login" onclick="login_usuario()">Login</button>
+
+    <script src="clase10_pr.js"></script>
 </body>
 </html>
