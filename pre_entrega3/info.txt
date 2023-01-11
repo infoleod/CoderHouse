@@ -12,6 +12,5 @@ Validaciones:
 	Que el Monto ingresado sea mayor a $1,00.- y menor o igual a $ 5.000.000,00.-.
 	Que la cantidad de cuotas sea: 3, 6, 9, 12, 24 o 36.
 	Que los valores ingresados (Monto y Cuotas) no sea Texto o Números negativos.
-	En todo momento, si el usuario presiona 'Esc' o 'Cancelar', pregunta si se quiere salir del proceso.
 	Luego de procesar, muestra los resultados.
 
