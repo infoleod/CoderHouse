@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulating Presaming</title>   
+
+    <!-- Links -->
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="node_modules/toastify-js/src/toastify.css" />
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css" />
+    <link rel="stylesheet" href="node_modules/@sweetalert2/theme-wordpress-admin/wordpress-admin.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body> 
+
+    <!---------------------------------------------------------- logo --------------------------------------------------------->
+    <div id="sm_logo">
+        <img src="img\sm_logo.png" alt="">
+    </div>
+
+    <!-------------------------------------------------- barra de navegacion -------------------------------------------------->
+    <div id="nav-bar-principal">
+        <nav class="navbar sticky-top navbar-dark bg-dark">
+            <div class="container-fluid">                
+                <!-- <a class="navbar-brand" href="#">- Simulating Prestaming -</a>                     -->
+                <a class="navbar-brand" href="#"></a>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+                    <a id="saludo_usuario" class="navbar-brand" style="color: rgb(92,255,230); display: none;">¡Bienvenido!</a>
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">Link</a>
+                            </li>
+                                                    
+                        </ul>
+                        <xxxform class="d-flex">                                                        
+                            <button id="btn_cerrar_sesion" class="btn btn-outline-success" type="submit" style="display: none">Cerrar sesion</button>                            
+                        </xxxform>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- Cuadro de bienvenida e informativo -->
+    <div id="intro_no_login" class="form-content-info login" >
+        <div id="intro_no_login_form" class="form-items login">
+            <h3 id="saludo_usuario" style="display: none;">¡Bienvenido!</h3>
+            <h3 class="login">¡Bienvenidos a Simulating Prestaming!</h3>
+            <p class="login">Antes que nada, necesitamos que te registres o inicies sesión.</p>            
+            <br>
+            <div class="col-md-12">
+                <div class="valid-feedback login" style="display: block;">Usuario/Mail</div>                
+                <!-- <input id="input_usr" class="login_input" type="text" name="text" placeholder="usuario/email" required>                                                     -->
+                <input id="input_usr" class="form-control" type="text" name="text" placeholder="usuario/email" required>                                                    
+                <div id="invalid_usr" class="invalid-feedback login">Usuario/Email incorrecto !</div>                
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback pass" style="display: block;">Password</div>                
+                <!-- <input id="input_pass" class="login_input" type="password" name="text" placeholder="password" required>                                                     -->
+                <input id="input_pass" class="form-control" type="password" name="text" placeholder="password" required>                                                    
+                <div id="invalid_pass" class="invalid-feedback pass">PassWord incorrecto !</div>
+            </div>
+            <button id="btn_registrar" type="submit" class="btn btn-primary">Registrate</button>
+            <button id="btn_login" type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </div>
+    </div> 
+
+    <!-- Cuadro de bienvenida e informativo -->
+    <div id="redirect_login" class="form-content-info login" >
+        <div id="intro_no_login_form" class="form-items login">
+            <h3 id="saludo_usuario" style="display: none;">¡Usuario creado con exito!</h3>
+            <h3 class="login">¡En unos segundos lo redireccionaremos a la pagina principal!</h3>
+        </div>
+    </div> 
+
+    <div id="intro_login" class="form-content-info">
+        <div class="form-items">
+            <h3>¡Bienvenidos a Simulating Presaming!</h3>
+            <p>Para su funcionamiento, deberá introducir:</p>
+            <li>Valor del préstamo y Seleccionar la cantidad de cuotas, eso es todo... y ahora a calcular...</li>
+            
+            <p>Como se calculan los resultados:</p>
+            <li>Al valor del préstamo, se le suma el porcentaje por apertura del préstamo del 5%. El mismo estará bonificado a partir de las 24 cuotas inclusive.</li>
+            <li>Dependiendo la cantidad de cuotas, se le cobra el interés de 15% en el caso de 3 o 6 cuotas, 30% en el caso de 9 o 12 cuotas y 45% en el caso de 24 o 36 cuotas.</li>
+            <li>Seleccionar la cantidad de cuotas</li>
+            
+            <p>Validaciones:</p>
+            <li>Que el Monto ingresado sea mayor a $1,00.- y menor o igual a $ 50.000.000,00.-.</li>
+            <li>Que la cantidad de cuotas sea: 3, 6, 9, 12, 24 o 36.</li>
+            <li>Que los valores ingresados (Monto y Cuotas) no sea Texto o Números negativos. </li>
+            <li>Luego de procesar, muestra los resultados. </li>            
+        </div>
+    </div>    
+
+    <!-- Cuadro de introduccion de parametros -->
+    <div id="simulador" class="form-content">
+        <div class="form-items">
+            <h3>¡Simulemos tu préstamo!</h3>
+            <p>Simula tu préstamo, calcula el valor de las cuotas y los intereses.</p>
+            <!-- <form class="requires-validation" novalidate> -->
+                <div class="col-md-12">
+                    <div class="valid-feedback" style="display: block;">Valor del préstamo</div>
+                    <input id="inp_valor_prestamo" class="form-control" type="number" name="number" placeholder="Valor del préstamo a solicitar" required>
+                    <div id="error_monto_invalido" class="invalid-feedback display:none">El monto ingresado no es valido!</div>
+                </div>
+                <div id="select_cuotas" class="col-md-12">
+                    <div class="valid-feedback" style="display: block;">Cantidad de cuotas</div>
+                    <select id="inp_cantidad_de_cuotas" class="form-select mt-3" required>
+                        <option selected disabled value="">Cantidad de cuotas</option>
+                        <option value="3">3</option>
+                        <option value="6">6</option>
+                        <option value="9">9</option>
+                        <option value="12">12</option>
+                        <option value="24">24</option>
+                        <option value="36">36</option>
+                    </select>
+                    <div id="error_cuotas_invalidas" class="invalid-feedback display:none">Por favor seleccione la cantidad de cuotas!</div>
+                </div>
+                
+                <div class="form-button mt-3">
+                    <button id="btn_calcular_prestamo" class="btn btn-primary">Calcular prestamo</button>
+                </div>                
+            <!-- </form> -->
+        </div>
+    </div>
+    
+    <!-- Resultados -->
+    <div id="resultado" class="form-content-result">
+        <div class="form-items">            
+            <h3>Resultados de tu simulación</h3>
+            <div class="col-md-12">
+                <div class="valid-feedback" style="display: block;">Monto inicial solicitado</div>                
+                <input id="res_monto_inicial" class="form-control" type="number" name="number" placeholder="Monto inicial solicitado" required readonly>
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback" style="display: block;">Cantidad de cuotas seleccionadas</div>
+                <input id="res_cant_cuotas" class="form-control" type="number" name="number" placeholder="Cantidad de cuotas seleccionadas" required readonly>
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback" style="display: block;">Valor de la cuota a pagar</div>
+                <input id="res_val_cuota" class="form-control" type="number" name="number" placeholder="Valor de la cuota a pagar" required readonly>
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback" style="display: block;">Intereses generados</div>
+                <input id="res_interes_generado" class="form-control" type="number" name="number" placeholder="Intereses generados" required readonly>
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback" style="display: block;">Comisión por apertura de préstamo</div>
+                <input id="res_comision_apertura" class="form-control" type="number" name="number" placeholder="Comision por apertura de prestamo" required readonly>
+            </div>
+            <div class="col-md-12">
+                <div class="valid-feedback" style="display: block;">Monto final a devolver</div>
+                <input id="res_monto_final" class="form-control" type="number" name="number" placeholder="Monto final a devolver" required readonly>
+            </div>        
+        </div>
+    </div>
+
+    <!-- Carteles de dolares -->
+    <div id="div_dolar">
+        <div class="div_dolar_val">
+            <div><img class="container_img" alt="logo-cotizaciones" title="cotizaciones" src="img\logo.png">
+                <div class="container_data" style="text-align:center;width:100%">
+                    <h2 class="data_titulo">Dólar</h2>
+                    <h2 class="data_titulo" id="data_titulo_oficial">_____</h2>
+                    <div class="data_valores" id="data_valores_oficial">
+                        <p class="data_compra" id="data_compra_oficial">0.00<span>Compra</span></p>
+                        <p class="data_venta" id="data_venta_oficial">0.00<span>Venta</span></p>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        
+        <div class="div_dolar_val">
+            <div><img class="container_img" alt="logo-cotizaciones" title="cotizaciones" src="img\logo.png">
+                <div class="container_data" style="text-align:center;width:100%">
+                    <h2 class="data_titulo">Dólar</h2>
+                    <h2 class="data_titulo" id="data_titulo_blue">_____</h2>
+                    <div class="data_valores" id="data_valores_blue">
+                        <p class="data_compra" id="data_compra_blue">0.00<span>Compra</span></p>
+                        <p class="data_venta" id="data_venta_blue">0.00<span>Venta</span></p>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Script Librerias descargadas locales con NPM -->    
+    <script src="node_modules\sweetalert2\dist\sweetalert2.min.js"></script>
+    <script type="text/javascript" src="node_modules/toastify-js/src/toastify.js"></script>
+
+    <!-- Script de conexion con JavaScript -->
+    <script src="js\local_session_storage.js" ></script>
+    <script src="js\funciones_prestamo.js" ></script>
+    <script src="js\funciones_dolar.js" ></script>
+    <script src="js\script.js" ></script>
+</body>
+</html>
